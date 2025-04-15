@@ -1,417 +1,150 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Currículo profissional de Luiz C. Borba, especialista em infraestrutura de TI">
     <title>Currículo - Luiz C. Borba</title>
     <style>
-        :root {
-            --primary-color: #2a5885;
-            --secondary-color: #4a7aaa;
-            --text-color: #333;
-            --light-gray: #f4f4f4;
-            --border-color: #e0e0e0;
-            --spacing-unit: 1rem;
-            --hover-color: #1d3f5f;
-            --hover-bg: #e8f0f7;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
             line-height: 1.6;
-            color: var(--text-color);
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: white;
-        }
-
-        header {
-            margin-bottom: 2rem;
-        }
-
-        .language-switch {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
-        }
-
-        .switch-button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 8px 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .switch-button:hover {
-            background-color: var(--hover-color);
-            transform: translateY(-2px);
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .switch-button img {
-            width: 20px;
-            height: 20px;
-        }
-
-        .profile-header {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            color: #333;
         }
 
         h1 {
-            color: var(--primary-color);
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s ease;
+            color: #2a5885;
         }
 
         h2 {
-            color: var(--secondary-color);
-            font-size: 1.4rem;
-            margin: 2rem 0 1rem 0;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--primary-color);
-            transition: all 0.3s ease;
+            color: #4a7aaa;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-top: 30px;
         }
 
-        h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin: 1rem 0 0.5rem 0;
-            transition: color 0.3s ease;
+        .contact-info p, .contact-info a {
+            margin: 5px 0;
+            display: block;
         }
 
-        .contact-info {
+        .section {
+            margin-bottom: 30px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .skills-list, .language-list, .cert-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 1rem;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
         }
 
-        .contact-info p {
-            margin: 0;
-        }
-
-        section {
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .profile-summary {
-            background-color: var(--light-gray);
-            padding: 1.5rem;
-            border-radius: 5px;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .profile-summary:hover {
-            background-color: var(--hover-bg);
-            border-left: 3px solid var(--primary-color);
+        .skills-list li, .language-list li, .cert-list li {
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 10px;
         }
 
         .job-title {
-            font-weight: 700;
-            color: var(--secondary-color);
-            margin-bottom: 0.3rem;
-            transition: color 0.3s ease;
-        }
-
-        .job-title:hover {
-            color: var(--hover-color);
+            font-weight: bold;
+            color: #2a5885;
         }
 
         .job-period {
             font-style: italic;
             color: #666;
-            margin-bottom: 0.8rem;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin-left: 0;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .skill-item {
-            background-color: var(--light-gray);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-
-        .skill-item:hover {
-            background-color: var(--hover-bg);
-            border-color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 3px 5px rgba(0,0,0,0.1);
-            cursor: default;
-        }
-
-        .skill-years {
-            color: #666;
-            font-size: 0.8rem;
-        }
-
-        .experience-item, .education-item {
-            margin-bottom: 1.5rem;
-            padding: 0.5rem;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .experience-item:hover, .education-item:hover {
-            background-color: var(--hover-bg);
-        }
-
-        .experience-list li, .additional-info li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.7rem;
-            transition: transform 0.2s ease;
-        }
-
-        .experience-list li:hover, .additional-info li:hover {
-            transform: translateX(5px);
-        }
-
-        .experience-list li::before, .additional-info li::before {
-            content: "•";
-            position: absolute;
-            left: 0.5rem;
-            color: var(--primary-color);
-            transition: color 0.3s ease;
-        }
-
-        .experience-list li:hover::before, .additional-info li:hover::before {
-            color: var(--hover-color);
-            content: "→";
-        }
-
-        .language-level {
-            font-style: italic;
-            color: #666;
-        }
-
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        a:hover {
-            color: var(--hover-color);
-        }
-
-        a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: var(--hover-color);
-            transition: width 0.3s ease;
-        }
-
-        a:hover::after {
-            width: 100%;
-        }
-
-        .content-pt, .content-en {
-            transition: opacity 0.5s ease;
-        }
-
-        .hidden {
-            display: none;
-            opacity: 0;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .language-switch {
-                position: relative;
-                top: 0;
-                right: 0;
-                display: flex;
-                justify-content: flex-end;
-                margin-bottom: 1rem;
-            }
-        }
-
-        @media print {
-            body {
-                padding: 0;
-                font-size: 11pt;
-            }
-
-            section {
-                page-break-inside: avoid;
-            }
-
-            .skill-item {
-                border: 1px solid #ddd;
-                background: none;
-            }
-            
-            .language-switch {
-                display: none;
-            }
-            
-            /* Desabilitar efeitos hover para impressão */
-            section:hover,
-            .experience-list li:hover,
-            .additional-info li:hover,
-            .skill-item:hover,
-            h1:hover,
-            h2:hover,
-            h3:hover {
-                transform: none;
-                background-color: initial;
-                border-color: initial;
-                box-shadow: none;
-            }
+            margin-bottom: 5px;
         }
     </style>
 </head>
-
 <body>
-    
-    <div id="content-pt" class="content-pt">
-        <header>
-            <div class="profile-header">
-                <h1>Luiz C. Borba</h1>
-                <div class="contact-info">
-                    <p>Bal. Piçarras</p>
-                    <p><a href="mailto:luizcborb@gmail.com">luizcborb@gmail.com</a></p>
-                    <p><a href="https://www.linkedin.com/in/luizcborba/" target="_blank" rel="noopener">LinkedIn</a></p>
-                </div>
-            </div>
 
-            <section class="profile-summary">
-                <p>Sou um profissional apaixonado por tecnologia, com experiência em infraestrutura de TI e um forte interesse em desenvolvimento de software. Estou em transição para essa área e busco aplicar meu conhecimento em redes e sistemas para criar soluções eficientes e inovadoras. Tenho facilidade para aprender novas tecnologias, trabalhar em equipe e aplicar metodologias ágeis. Meu foco é evoluir constantemente e contribuir com projetos de alto impacto.</p>
-            </section>
-        </header>
-
-        <main>
-            <section id="experience">
-                <h2>Experiência Profissional</h2>
-                
-                <article class="experience-item">
-                    <h3 class="job-title">Infraestrutura Pleno</h3>
-                    <p class="job-period">Empresa • Período</p>
-                    <ul class="experience-list">
-                        <li>Administração e manutenção de Google Workspace e Active Directory.</li>
-                        <li>Suporte técnico e troubleshooting para sistemas Linux, Windows e Mac.</li>
-                        <li>Gerenciamento e otimização da infraestrutura de rede e Wi-Fi.</li>
-                        <li>Desenvolvimento de documentação técnica e padronização de processos internos.</li>
-                    </ul>
-                </article>
-                
-                <article class="experience-item">
-                    <h3 class="job-title">Analista de Redes</h3>
-                    <p class="job-period">Empresa • Período</p>
-                    <ul class="experience-list">
-                        <li>Monitoramento contínuo e resolução de incidentes em redes corporativas.</li>
-                        <li>Planejamento e implementação de novos equipamentos e procedimentos.</li>
-                        <li>Atendimento e suporte especializado a clientes e equipes N1/N2.</li>
-                        <li>Configuração e manutenção de OLT Fiberhome, DATACOM e CIANET.</li>
-                        <li>Gestão de POP (Point of Presence), criação de rotas e configuração de OSPF.</li>
-                    </ul>
-                </article>
-            </section>
-
-            <section id="education">
-                <h2>Formação Acadêmica</h2>
-                <article class="education-item">
-                    <h3>Graduação - Sistemas para Internet</h3>
-                    <p>Univali - Itajaí, SC (Março de 2025 - Atual)</p>
-                </article>
-            </section>
-
-            <section id="skills">
-                <h2>Habilidades e Competências</h2>
-                <ul class="skills-list">
-                    <li class="skill-item">Linux <span class="skill-years">(2 anos)</span></li>
-                    <li class="skill-item">Administração de Redes <span class="skill-years">(1 ano)</span></li>
-                    <li class="skill-item">Scrum <span class="skill-years">(1 ano)</span></li>
-                    <li class="skill-item">GitHub <span class="skill-years">(1 ano)</span></li>
-                    <li class="skill-item">Suporte de TI <span class="skill-years">(5 anos)</span></li>
-                </ul>
-            </section>
-
-            <section id="languages">
-                <h2>Idiomas</h2>
-                <ul class="skills-list">
-                    <li class="skill-item">Inglês <span class="language-level">(Avançado)</span></li>
-                    <li class="skill-item">Português <span class="language-level">(Língua Materna)</span></li>
-                </ul>
-            </section>
-
-            <section id="certifications">
-                <h2>Certificações e Licenças</h2>
-                <ul class="skills-list">
-                    <li class="skill-item">SQL</li>
-                    <li class="skill-item">PHP</li>
-                    <li class="skill-item">AWS</li>
-                    <li class="skill-item">Linux</li>
-                    <li class="skill-item">Docker</li>
-                    <li class="skill-item">Kubernetes</li>
-                </ul>
-            </section>
-
-            <section id="additional-info">
-                <h2>Informações Adicionais</h2>
-                <ul class="additional-info">
-                    <li><strong>Linguagens de Programação:</strong> C++ (Estudando), SQL (iniciante)</li>
-                    <li><strong>Sistemas Operacionais:</strong> Linux, Windows, MacOS (Administração e Troubleshooting)</li>
-                    <li><strong>Redes:</strong> Configuração e manutenção de redes, OSPF, VLAN, Wi-Fi, Unifi, administração de servidores</li>
-                    <li><strong>Ferramentas e Tecnologias:</strong> Git/GitHub, Docker (iniciante), Active Directory, Google Workspace</li>
-                    <li><strong>Metodologias:</strong> Scrum</li>
-                </ul>
-            </section>
-        </main>
+    <h1>Luiz C. Borba</h1>
+    <div class="contact-info">
+        <p>Bal. Piçarras</p>
+        <a href="mailto:luizcborb@gmail.com">luizcborb@gmail.com</a>
+        <a href="https://www.linkedin.com/in/luizcborba/" target="_blank">LinkedIn</a>
     </div>
-</body>
 
+    <div class="section">
+        <h2>Resumo Profissional</h2>
+        <p>Profissional de TI com experiência em infraestrutura e forte interesse em desenvolvimento. Busco aplicar meus conhecimentos em redes e sistemas para criar soluções eficientes.</p>
+    </div>
+
+    <div class="section">
+        <h2>Experiência Profissional</h2>
+
+        <p class="job-title">Infraestrutura Pleno</p>
+        <p class="job-period">Empresa • Período</p>
+        <ul>
+            <li>Administração de Google Workspace e Active Directory.</li>
+            <li>Suporte técnico em Linux, Windows e Mac.</li>
+            <li>Gerenciamento de redes e Wi-Fi.</li>
+            <li>Documentação técnica e padronização de processos.</li>
+        </ul>
+
+        <p class="job-title">Analista de Redes</p>
+        <p class="job-period">Empresa • Período</p>
+        <ul>
+            <li>Monitoramento e incidentes de rede.</li>
+            <li>Implantação de equipamentos e procedimentos.</li>
+            <li>Suporte a clientes e equipes N1/N2.</li>
+            <li>Configuração de OLT, rotas e OSPF.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Formação Acadêmica</h2>
+        <p><strong>Graduação - Sistemas para Internet</strong><br>Univali - Itajaí, SC (2025 - Atual)</p>
+    </div>
+
+    <div class="section">
+        <h2>Habilidades</h2>
+        <ul class="skills-list">
+            <li>Linux (2 anos)</li>
+            <li>Redes (1 ano)</li>
+            <li>Scrum (1 ano)</li>
+            <li>GitHub (1 ano)</li>
+            <li>Suporte de TI (5 anos)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Idiomas</h2>
+        <ul class="language-list">
+            <li>Inglês (Avançado)</li>
+            <li>Português (Nativo)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Certificações</h2>
+        <ul class="cert-list">
+            <li>SQL</li>
+            <li>PHP</li>
+            <li>AWS</li>
+            <li>Linux</li>
+            <li>Docker</li>
+            <li>Kubernetes</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Informações Adicionais</h2>
+        <ul>
+            <li><strong>Programação:</strong> C++ (estudando), SQL (iniciante)</li>
+            <li><strong>Sistemas:</strong> Linux, Windows, MacOS</li>
+            <li><strong>Redes:</strong> OSPF, VLAN, Wi-Fi, Unifi</li>
+            <li><strong>Ferramentas:</strong> Git, Docker, AD, Google Workspace</li>
+            <li><strong>Metodologias:</strong> Scrum</li>
+        </ul>
+    </div>
+
+</body>
 </html>
